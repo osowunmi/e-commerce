@@ -13,7 +13,7 @@ RUN --mount=type=cache,target=/go/pkg/mod/ \
 RUN --mount=type=cache,target=/go/pkg/mod/ \
     --mount=type=cache,target=/root/.cache/go-build \
     --mount=type=bind,rw,source=./src/checkout,target=. \
-    go buld -ldflag "-s -w" -o /go/bin/checkout/ ./
+    go build -ldflag "-s -w" -o /go/bin/checkout/ ./
 
 ### STAGE 2 ###
 
@@ -21,7 +21,7 @@ FROM alpine AS release
 
 WORKDIR /usr/src/app/
 
-COPY --frm=builder /go/bin/checkout/ ./
+COPY --from=builder /go/bin/checkout/ ./
 
 EXPOSE ${CHECKOUT_PORT}
 
