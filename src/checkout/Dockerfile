@@ -23,6 +23,7 @@ WORKDIR /usr/src/app/
 
 COPY --from=builder /go/bin/checkout/ ./
 
-EXPOSE ${CHECKOUT_PORT}
+#EXPOSE ${CHECKOUT_PORT}
+EXPOSE 8081
 
 ENTRYPOINT [ "./checkout" ]
