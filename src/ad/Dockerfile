@@ -9,7 +9,7 @@ COPY gradlew* settings.gradle build.gradle .
 COPY ./gradle ./gradle
 
 RUN chmod +x ./gradlew
-RUN ./gradle
+RUN ./gradlew
 RUN ./gradlew downloadRepos		###Download dependencies###
 
 COPY . .
