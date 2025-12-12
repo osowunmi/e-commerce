@@ -25,7 +25,7 @@ WORKDIR /usr/src/app/
 
 COPY --from=builder /go/bin/checkout/ ./
 
-ENV CHECKOUT_PORT=8081
+ENV CHECKOUT_PORT 8081
 
 ENTRYPOINT [ "./checkout" ]
 
